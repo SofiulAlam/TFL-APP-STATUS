@@ -26,19 +26,21 @@ describe("Renders main page correctly", async () => {
         { id: "2", name: "Central", status: "Good Service" },
       ],
     });
-
     // Setup
     render(<TubeStatus />);
-
     // Wait for the API call to resolve
     await screen.findAllByText("Bakerloo : Good Service");
     await screen.findAllByText("Central : Good Service");
-
     // Expectations
     const bakerlooElement = screen.getAllByText(/Bakerloo : Good Service/i);
     const centralElement = screen.getAllByText(/Central : Good Service/i);
-
     expect(bakerlooElement).toBeTruthy();
     expect(centralElement).toBeTruthy();
+  });
+
+  it("displays TFL logo", () => {
+    render(<TubeStatus />);
+    const logoElement = screen.getAllByAltText("TFL Logo");
+    expect(logoElement).toBeTruthy();
   });
 });
