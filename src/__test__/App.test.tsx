@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 
 import TubeStatus from "../components/tube-status/TubeStatus";
 import statusService from "../services/status-service";
@@ -42,5 +42,11 @@ describe("Renders main page correctly", async () => {
     render(<TubeStatus />);
     const logoElement = screen.getAllByAltText("TFL Logo");
     expect(logoElement).toBeTruthy();
+  });
+  it("displays tube lines without errors", async () => {
+    render(<TubeStatus />);
+    await waitFor(() => {
+      expect(screen.queryByText("Error:")).toBeNull();
+    });
   });
 });
