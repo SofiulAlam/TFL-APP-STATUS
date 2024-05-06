@@ -9,7 +9,7 @@ Clone: https://github.com/SofiulAlam/TFL-APP-STATUS
 3. Copy the files to a folder in your local drive and open in vscode by running command 'code .'
 4. Open vscode terminal and cd to folder 'TFL-APP-STATUS'
 5. Run 'npm i' to install all the packages.
-6. Write 'npm run dev' to view the status of tube lines.
+6. Write 'npm run dev' to view the status of the Tube lines.
 
 How to run Test?
 
